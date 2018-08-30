@@ -1,5 +1,7 @@
 FROM jenkins/jenkins:2.140-alpine
 
+LABEL authors="Deepak Selvan"
+
 # install linux utils 
 USER root
 RUN apk -v --update add \
