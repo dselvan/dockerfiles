@@ -6,7 +6,8 @@ Download the `ng` bash script from the `scripts/` folder to either your local de
 
 #### Example 
 ```bash
-curl -o /home/user/bin/ng https://raw.githubusercontent.com/dselvan/dockerfiles/master/angular-cli/scripts/ng
-PATH=/home/user/bin:$PATH
+curl -o /home/user/scripts/ng https://raw.githubusercontent.com/dselvan/dockerfiles/master/angular-cli/scripts/ng
+chmod +x /home/user/scripts/ng
+PATH=/home/user/scripts:$PATH
 ng new project
 ```
