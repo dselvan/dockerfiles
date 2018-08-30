@@ -10,7 +10,7 @@ trap - INT TERM
 sudo docker run --rm \
 	-t $(tty &>/dev/null && echo "-i") \
 	-v "$(pwd):/workspace" \
-    -w "/workspace" \
+    	-w "/workspace" \
 	-e HOST_USER_UID=$(id -u) \
 	dselvan/angular-cli:n10.9.0-acli6.1.5 \
 	"$@"
