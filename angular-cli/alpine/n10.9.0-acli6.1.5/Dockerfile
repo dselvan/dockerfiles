@@ -25,3 +25,5 @@ WORKDIR /workspace
 RUN deluser --remove-home node
 
 ENTRYPOINT [ "/entrypoints/ng-entrypoint.sh" ]
+
+EXPOSE 4200
