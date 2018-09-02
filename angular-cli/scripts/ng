@@ -7,10 +7,18 @@ set -o pipefail
 # enable interruption signal handling
 trap - INT TERM
 
+# Map the port if we want ng serve to be avaliable to the host
+DOCKER_PORT_MAP_STRING=
+if [[ -v NG_PUBLISH_PORT ]]; then
+	DOCKER_PORT_MAP_STRING="-p ${NG_PUBLISH_PORT}:${NG_PUBLISH_PORT}"
+fi
+
+
 sudo docker run --rm \
 	-t $(tty &>/dev/null && echo "-i") \
 	-v "$(pwd):/workspace" \
     	-w "/workspace" \
 	-e HOST_USER_UID=$(id -u) \
+	${DOCKER_PORT_MAP_STRING} \
 	dselvan/angular-cli:n10.9.0-acli6.1.5 \
 	"$@"
